@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -43,7 +44,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,6 +98,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="SistemaVeterinaria.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SistemaVeterinaria.edmx</DependentUpon>
+      <LastGenOutput>SistemaVeterinaria.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SistemaVeterinaria.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SistemaVeterinaria.edmx</DependentUpon>
+      <LastGenOutput>SistemaVeterinaria.cs</LastGenOutput>
+    </Content>
     <Content Include="Views\Auxiliar\FrmAnimal.aspx" />
     <Content Include="Views\Auxiliar\FrmCita.aspx" />
     <Content Include="Views\Auxiliar\FrmDueño.aspx" />
@@ -98,13 +117,29 @@
     <Content Include="Views\Dueño\IndexDueño.aspx" />
     <Content Include="Views\Footer.aspx" />
     <Content Include="Views\Index.aspx" />
+    <Content Include="Views\Integrantes.aspx" />
     <Content Include="Views\Veterinario\FrmDiagnostico.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ANIMAL.cs">
+      <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Auxiliar.cs">
+      <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cita.cs">
+      <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostico.cs">
+      <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dueño.cs">
+      <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -122,7 +157,31 @@
     <Compile Include="Models\Registro.cs" />
     <Compile Include="Models\RegistroPersonal.cs" />
     <Compile Include="Models\Veterinario.cs" />
+    <Compile Include="Personal.cs">
+      <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro_Personal.cs">
+      <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SistemaVeterinaria.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaVeterinaria.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SistemaVeterinaria.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SistemaVeterinaria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaVeterinaria.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Views\Auxiliar\FrmAnimal.aspx.cs">
       <DependentUpon>FrmAnimal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -186,6 +245,13 @@
     <Compile Include="Views\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Integrantes.aspx.cs">
+      <DependentUpon>Integrantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Integrantes.aspx.designer.cs">
+      <DependentUpon>Integrantes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Plantilla.Master.cs">
       <DependentUpon>Plantilla.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -205,6 +271,13 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Plantilla.Master" />
+    <EntityDeploy Include="SistemaVeterinaria.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SistemaVeterinaria.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="SistemaVeterinaria.edmx.diagram">
+      <DependentUpon>SistemaVeterinaria.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -215,6 +288,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -246,7 +322,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

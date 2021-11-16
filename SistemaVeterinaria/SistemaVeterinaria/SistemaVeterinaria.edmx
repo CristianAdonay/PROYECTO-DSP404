@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Veterinaria_SistemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ANIMAL">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+          <Property Name="IdAnimal" Type="varchar" MaxLength="45" />
+          <Property Name="Tipo_Animal" Type="varchar" MaxLength="45" />
+          <Property Name="Nombre_Animal" Type="varchar" MaxLength="45" />
+          <Property Name="Raza_Animal" Type="varchar" MaxLength="45" />
+          <Property Name="Edad_Animal" Type="int" />
+          <Property Name="Nombre_Dueño" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Auxiliar">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+          <Property Name="IdAuxiliar" Type="varchar" MaxLength="45" />
+          <Property Name="Registro" Type="varchar" MaxLength="45" />
+          <Property Name="Cita" Type="varchar" MaxLength="45" />
+          <Property Name="Dueño" Type="varchar" MaxLength="45" />
+          <Property Name="Animal" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Cita">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+          <Property Name="IdCita" Type="varchar" MaxLength="45" />
+          <Property Name="Hora" Type="datetime" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Tipo_Animal" Type="varchar" MaxLength="45" />
+          <Property Name="Nombre_Animal" Type="varchar" MaxLength="45" />
+          <Property Name="Raza_Animal" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Diagnostico">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="45" />
+          <Property Name="Receta" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Dueño">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+          <Property Name="IdDueño" Type="varchar" MaxLength="45" />
+          <Property Name="Nombre_Dueño" Type="varchar" MaxLength="45" />
+          <Property Name="Numero_Dui" Type="int" />
+          <Property Name="Direccion" Type="varchar" MaxLength="45" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="45" />
+          <Property Name="Numero_Telefono" Type="int" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+          <Property Name="IdPersonal" Type="int" />
+          <Property Name="Indentificacion" Type="int" />
+          <Property Name="Veterinario" Type="varchar" MaxLength="35" />
+          <Property Name="Auxiliar" Type="varchar" MaxLength="35" />
+        </EntityType>
+        <EntityType Name="Registro_Personal">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+          <Property Name="IdPersona" Type="int" />
+          <Property Name="personal" Type="varchar" MaxLength="35" />
+          <Property Name="Nombre_Usuario" Type="varchar" MaxLength="45" />
+          <Property Name="Contraseña" Type="int" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Nombre_Completo" Type="varchar" MaxLength="45" />
+          <Property Name="Fecha_Ingreso" Type="datetime" />
+          <Property Name="Email" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="Veterinaria_SistemaModelStoreContainer">
+          <EntitySet Name="ANIMAL" EntityType="Self.ANIMAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Auxiliar" EntityType="Self.Auxiliar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diagnostico" EntityType="Self.Diagnostico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dueño" EntityType="Self.Dueño" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registro_Personal" EntityType="Self.Registro_Personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Veterinaria_SistemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ANIMAL">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="Int32" Nullable="false" />
+          <Property Name="IdAnimal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_Animal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Animal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Raza_Animal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Edad_Animal" Type="Int32" />
+          <Property Name="Nombre_Dueño" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Auxiliar">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="Int32" Nullable="false" />
+          <Property Name="IdAuxiliar" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Registro" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cita" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Dueño" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Animal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cita">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="Int32" Nullable="false" />
+          <Property Name="IdCita" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Hora" Type="DateTime" Precision="3" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Tipo_Animal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Animal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Raza_Animal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Diagnostico">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Receta" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Dueño">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="Int32" Nullable="false" />
+          <Property Name="IdDueño" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Dueño" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Numero_Dui" Type="Int32" />
+          <Property Name="Direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Numero_Telefono" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="Int32" Nullable="false" />
+          <Property Name="IdPersonal" Type="Int32" />
+          <Property Name="Indentificacion" Type="Int32" />
+          <Property Name="Veterinario" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Auxiliar" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Registro_Personal">
+          <Key>
+            <PropertyRef Name="Registro_Veterinario" />
+          </Key>
+          <Property Name="Registro_Veterinario" Type="Int32" Nullable="false" />
+          <Property Name="IdPersona" Type="Int32" />
+          <Property Name="personal" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Usuario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Contraseña" Type="Int32" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Nombre_Completo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="Veterinaria_SistemaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ANIMAL" EntityType="Self.ANIMAL" />
+          <EntitySet Name="Auxiliar" EntityType="Self.Auxiliar" />
+          <EntitySet Name="Cita" EntityType="Self.Cita" />
+          <EntitySet Name="Diagnostico" EntityType="Self.Diagnostico" />
+          <EntitySet Name="Dueño" EntityType="Self.Dueño" />
+          <EntitySet Name="Personal" EntityType="Self.Personal" />
+          <EntitySet Name="Registro_Personal" EntityType="Self.Registro_Personal" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Veterinaria_SistemaModelStoreContainer" CdmEntityContainer="Veterinaria_SistemaEntities">
+          <EntitySetMapping Name="ANIMAL">
+            <EntityTypeMapping TypeName="Veterinaria_SistemaModel.ANIMAL">
+              <MappingFragment StoreEntitySet="ANIMAL">
+                <ScalarProperty Name="Registro_Veterinario" ColumnName="Registro_Veterinario" />
+                <ScalarProperty Name="IdAnimal" ColumnName="IdAnimal" />
+                <ScalarProperty Name="Tipo_Animal" ColumnName="Tipo_Animal" />
+                <ScalarProperty Name="Nombre_Animal" ColumnName="Nombre_Animal" />
+                <ScalarProperty Name="Raza_Animal" ColumnName="Raza_Animal" />
+                <ScalarProperty Name="Edad_Animal" ColumnName="Edad_Animal" />
+                <ScalarProperty Name="Nombre_Dueño" ColumnName="Nombre_Dueño" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Auxiliar">
+            <EntityTypeMapping TypeName="Veterinaria_SistemaModel.Auxiliar">
+              <MappingFragment StoreEntitySet="Auxiliar">
+                <ScalarProperty Name="Registro_Veterinario" ColumnName="Registro_Veterinario" />
+                <ScalarProperty Name="IdAuxiliar" ColumnName="IdAuxiliar" />
+                <ScalarProperty Name="Registro" ColumnName="Registro" />
+                <ScalarProperty Name="Cita" ColumnName="Cita" />
+                <ScalarProperty Name="Dueño" ColumnName="Dueño" />
+                <ScalarProperty Name="Animal" ColumnName="Animal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cita">
+            <EntityTypeMapping TypeName="Veterinaria_SistemaModel.Cita">
+              <MappingFragment StoreEntitySet="Cita">
+                <ScalarProperty Name="Registro_Veterinario" ColumnName="Registro_Veterinario" />
+                <ScalarProperty Name="IdCita" ColumnName="IdCita" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Tipo_Animal" ColumnName="Tipo_Animal" />
+                <ScalarProperty Name="Nombre_Animal" ColumnName="Nombre_Animal" />
+                <ScalarProperty Name="Raza_Animal" ColumnName="Raza_Animal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diagnostico">
+            <EntityTypeMapping TypeName="Veterinaria_SistemaModel.Diagnostico">
+              <MappingFragment StoreEntitySet="Diagnostico">
+                <ScalarProperty Name="Registro_Veterinario" ColumnName="Registro_Veterinario" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Receta" ColumnName="Receta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dueño">
+            <EntityTypeMapping TypeName="Veterinaria_SistemaModel.Dueño">
+              <MappingFragment StoreEntitySet="Dueño">
+                <ScalarProperty Name="Registro_Veterinario" ColumnName="Registro_Veterinario" />
+                <ScalarProperty Name="IdDueño" ColumnName="IdDueño" />
+                <ScalarProperty Name="Nombre_Dueño" ColumnName="Nombre_Dueño" />
+                <ScalarProperty Name="Numero_Dui" ColumnName="Numero_Dui" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Numero_Telefono" ColumnName="Numero_Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personal">
+            <EntityTypeMapping TypeName="Veterinaria_SistemaModel.Personal">
+              <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="Registro_Veterinario" ColumnName="Registro_Veterinario" />
+                <ScalarProperty Name="IdPersonal" ColumnName="IdPersonal" />
+                <ScalarProperty Name="Indentificacion" ColumnName="Indentificacion" />
+                <ScalarProperty Name="Veterinario" ColumnName="Veterinario" />
+                <ScalarProperty Name="Auxiliar" ColumnName="Auxiliar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registro_Personal">
+            <EntityTypeMapping TypeName="Veterinaria_SistemaModel.Registro_Personal">
+              <MappingFragment StoreEntitySet="Registro_Personal">
+                <ScalarProperty Name="Registro_Veterinario" ColumnName="Registro_Veterinario" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="personal" ColumnName="personal" />
+                <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre_Completo" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Veterinaria_SistemaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
