@@ -134,6 +134,7 @@
     <Compile Include="Cita.cs">
       <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CitaController.cs" />
     <Compile Include="Diagnostico.cs">
       <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
     </Compile>
@@ -287,7 +288,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Views\Cita\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
