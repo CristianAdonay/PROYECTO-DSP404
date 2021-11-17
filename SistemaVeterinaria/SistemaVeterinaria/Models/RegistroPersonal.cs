@@ -42,21 +42,5 @@ namespace SistemaVeterinaria.Models
             this.ID = ID;
             this.FechaIngreso = FechaIngreso;
         }
-
-        //Generar contraseña
-
-        public string Generarcontraseña()
-        {
-            string cadena = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789@#$%&!";
-
-            string Contraseña = string.Empty;
-            Random random = new Random();
-            for (int i=0; i<6;i++)
-            {
-                int ran = random.Next(0, 70);
-                Contraseña += cadena[ran];
-            }
-            return Contraseña;
-        }
     }
 }

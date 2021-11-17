@@ -8,7 +8,7 @@
     </style>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
     <table align="center" style="width: 54%; height: 288px;">
         <tr>
             <td colspan="2" style="text-align:center">REGISTRAR PERSONAL</td>

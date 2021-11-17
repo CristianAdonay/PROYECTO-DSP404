@@ -9,7 +9,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
     <table align="center" style="width: 60%">
         <tr>
             <td colspan="2" align="center">REGISTRAR DUEÑO</td>

@@ -163,7 +163,9 @@
     <Compile Include="Models\ModeloAnimal.cs" />
     <Compile Include="Models\ModeloCita.cs" />
     <Compile Include="Models\ModeloDueño.cs" />
+    <Compile Include="Models\ModeloPaciente.cs" />
     <Compile Include="Models\ModeloRegistroPersonal.cs" />
+    <Compile Include="Models\Paciente.cs" />
     <Compile Include="Models\Personal.cs" />
     <Compile Include="Models\Registro.cs" />
     <Compile Include="Models\RegistroPersonal.cs" />
