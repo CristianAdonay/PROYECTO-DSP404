@@ -34,7 +34,7 @@ namespace SistemaVeterinaria.Models
 
                 //Agregando tabla de dueños
                 Comando.CommandText = "Insert into dueños values" +
-                    "(@IDDueño,@Nombredueño,@Numerodui,@Direccion,@Edad,@Email,@Numerotelefono)";
+                    "(@IDDueño,@Nombredueño,@Numerodui,@Direccion,@Edad,@Email,@Numerotelefono, @Fechaingreso)";
                 Comando.Parameters.AddWithValue("@IDDueño", unDueño.iddueño);
                 Comando.Parameters.AddWithValue("@Nombredueño", unDueño.nombredueño);
                 Comando.Parameters.AddWithValue("@Numerodui", unDueño.numerodui);
@@ -42,6 +42,7 @@ namespace SistemaVeterinaria.Models
                 Comando.Parameters.AddWithValue("@Edad", unDueño.edad);
                 Comando.Parameters.AddWithValue("@Email", unDueño.email);
                 Comando.Parameters.AddWithValue("@Numerotelefono", unDueño.numerotelefono);
+                Comando.Parameters.AddWithValue("@Fechaingreso", unDueño.fechaingreso);
 
                 //Obteniendo el ID del dueño
                 Comando.Parameters.Clear();

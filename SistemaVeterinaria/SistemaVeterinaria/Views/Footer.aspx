@@ -2,6 +2,7 @@
     <tr>
         <td style="width:33%"><b>Nuestros servicios:</b><br />
             Higiene<br/>
+            Alimentación<br/>
             Consultas médicas<br/>
             Vacunación<br/>
             Espá<br/>

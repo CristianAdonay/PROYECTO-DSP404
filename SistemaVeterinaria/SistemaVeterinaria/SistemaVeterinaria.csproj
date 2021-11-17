@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controllers\SWebController.aspx" />
     <Content Include="Global.asax" />
     <Content Include="SistemaVeterinaria.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -118,6 +119,8 @@
     <Content Include="Views\Footer.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\Integrantes.aspx" />
+    <Content Include="Views\Menu.aspx" />
+    <Content Include="Views\Salir.aspx" />
     <Content Include="Views\Veterinario\FrmDiagnostico.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -134,7 +137,14 @@
     <Compile Include="Cita.cs">
       <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\CitaController.cs" />
+    <Compile Include="Controllers\DueñoController.cs" />
+    <Compile Include="Controllers\SWebController.aspx.cs">
+      <DependentUpon>SWebController.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\SWebController.aspx.designer.cs">
+      <DependentUpon>SWebController.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Diagnostico.cs">
       <DependentUpon>SistemaVeterinaria.tt</DependentUpon>
     </Compile>
@@ -253,12 +263,26 @@
     <Compile Include="Views\Integrantes.aspx.designer.cs">
       <DependentUpon>Integrantes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Plantilla.Master.cs">
       <DependentUpon>Plantilla.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Plantilla.Master.designer.cs">
       <DependentUpon>Plantilla.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salir.aspx.cs">
+      <DependentUpon>Salir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Salir.aspx.designer.cs">
+      <DependentUpon>Salir.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Veterinario\FrmDiagnostico.aspx.cs">
       <DependentUpon>FrmDiagnostico.aspx</DependentUpon>

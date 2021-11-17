@@ -26,7 +26,7 @@
             <td>DUI:</td>
             <td>
                 <div>
-                    <asp:TextBox ID="txtDUI" runat="server" required="required"></asp:TextBox>
+                    <asp:TextBox ID="cbDUI" runat="server" required="required"></asp:TextBox>
                 </div>
             </td>
         </tr>
@@ -63,12 +63,21 @@
             </td>
         </tr>
         <tr>
+            <td>Fecha de Ingreso:</td>
+            <td>
+                <div>
+                    <asp:TextBox ID="txtFechaingreso" runat="server" required="required"></asp:TextBox>
+                </div>
+            </td>
+        </tr>
+        <tr>
             <td colspan="2" align="center">
                 <div>
                     <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" class="btn btn-success"></asp:Button>
                 </div>
             </td>
         </tr>
+
     </table>
     <br />
     <% if (IsPostBack)

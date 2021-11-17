@@ -22,13 +22,13 @@ namespace SistemaVeterinaria.Views.Auxiliar {
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
-        /// txtDUI control.
+        /// cbDUI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDUI;
+        protected global::System.Web.UI.WebControls.TextBox cbDUI;
         
         /// <summary>
         /// txtDireccion control.
@@ -65,6 +65,15 @@ namespace SistemaVeterinaria.Views.Auxiliar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
+        
+        /// <summary>
+        /// txtFechaingreso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaingreso;
         
         /// <summary>
         /// btnRegistrar control.

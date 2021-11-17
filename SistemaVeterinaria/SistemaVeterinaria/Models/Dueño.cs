@@ -14,6 +14,7 @@ namespace SistemaVeterinaria.Models
         private double Edad;
         private string Email;
         private int Numerotelefono;
+        private DateTime Fechaingreso;
 
         public int iddueño { get => IDDueño; set => IDDueño = value; }
         public string nombredueño { get => Nombredueño; set => Nombredueño = value; }
@@ -22,10 +23,12 @@ namespace SistemaVeterinaria.Models
         public double edad { get => Edad; set => Edad = value; }
         public string email { get => Email; set => Email = value; }
         public int numerotelefono { get => Numerotelefono; set => Numerotelefono = value; }
+        public DateTime fechaingreso { get => Fechaingreso; set => Fechaingreso = value; }
 
         //Constructor con parámetros
 
-        public Dueño(string Nombredueño, int Numerodui, string Direccion, double Edad, string Email, int Numerotelefono)
+        public Dueño(string Nombredueño, int Numerodui, string Direccion, double Edad, 
+            string Email, int Numerotelefono, DateTime Fechaingreso)
         {
             this.Nombredueño = Nombredueño;
             this.Numerodui = Numerodui;
@@ -33,6 +36,7 @@ namespace SistemaVeterinaria.Models
             this.Edad = Edad;
             this.Email = Email;
             this.Numerotelefono = Numerotelefono;
+            this.Fechaingreso = Fechaingreso;
         }
         public Dueño()
         {

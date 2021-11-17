@@ -2,18 +2,57 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
 <head runat="server">
-    <title></title>
+    <meta name="viewport"  content="width=device-width. initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>VETERINARIA SAN JULIÁN</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+
+
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
+    <div class="container">
+        <header>
+            <asp:Image ID="" runat="server" ImageUrl="#" />
+        </header>
+        <nav>
+            <%
+                if (Session["formularios"] != null)
+                {
+                    string formularios = Session["formularios"].ToString();
+                    switch (formularios)
+                    {
+                        case "Auxiliar":
+                            Response.WriteFile("~/Views/Auxiliar/Menu.aspx");
+                            break;
+                        case "Veterinario":
+                            Response.WriteFile("~/Views/Veterinario/Menu.aspx");
+                            break;
+                        case "Dueño":
+                            Response.WriteFile("~/Views/Dueño/Index.aspx");
+                            break;
+                    }
+                }
+                else
+                {
+                    Response.WriteFile("~/Views/Menu.aspx");
+                }
+           %>
+        </nav>
+        <section style="min-height: 250px">
+            <form runat="server">
+                <p></p>
+                <div>
+                    <asp:ContentPlaceHolder ID="contenido" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </form>
+        </section>
+    <footer>
+        <%Response.WriteFile("~/Views/Footer.aspx");%>
+    </footer>
+  </div>
 </body>
 </html>

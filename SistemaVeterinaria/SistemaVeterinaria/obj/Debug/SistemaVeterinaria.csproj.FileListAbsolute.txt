@@ -47,3 +47,7 @@ C:\Users\Admin\OneDrive\Escritorio\Proyecto cátedra DSP404\SistemaVeterinaria\S
 C:\Users\Admin\OneDrive\Escritorio\Proyecto cátedra DSP404\SistemaVeterinaria\SistemaVeterinaria\obj\Debug\SistemaVeterinaria.csproj.CopyComplete
 C:\Users\Admin\OneDrive\Escritorio\Proyecto cátedra DSP404\SistemaVeterinaria\SistemaVeterinaria\obj\Debug\SistemaVeterinaria.dll
 C:\Users\Admin\OneDrive\Escritorio\Proyecto cátedra DSP404\SistemaVeterinaria\SistemaVeterinaria\obj\Debug\SistemaVeterinaria.pdb
+C:\Users\Admin\OneDrive\Escritorio\PROYECTO-DSP404\SistemaVeterinaria\SistemaVeterinaria\obj\Debug\SistemaVeterinaria.csprojAssemblyReference.cache
+C:\Users\Admin\OneDrive\Escritorio\PROYECTO-DSP404\SistemaVeterinaria\SistemaVeterinaria\obj\Debug\SistemaVeterinaria.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Escritorio\PROYECTO-DSP404\SistemaVeterinaria\SistemaVeterinaria\obj\Debug\SistemaVeterinaria.dll
+C:\Users\Admin\OneDrive\Escritorio\PROYECTO-DSP404\SistemaVeterinaria\SistemaVeterinaria\obj\Debug\SistemaVeterinaria.pdb

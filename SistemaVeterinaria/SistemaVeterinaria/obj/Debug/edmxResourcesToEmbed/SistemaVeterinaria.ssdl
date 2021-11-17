@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Veterinaria_SistemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ANIMAL">
+    <Key>
+      <PropertyRef Name="Registro_Veterinario" />
+    </Key>
+    <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+    <Property Name="IdAnimal" Type="varchar" MaxLength="45" />
+    <Property Name="Tipo_Animal" Type="varchar" MaxLength="45" />
+    <Property Name="Nombre_Animal" Type="varchar" MaxLength="45" />
+    <Property Name="Raza_Animal" Type="varchar" MaxLength="45" />
+    <Property Name="Edad_Animal" Type="int" />
+    <Property Name="Nombre_Dueño" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Auxiliar">
+    <Key>
+      <PropertyRef Name="Registro_Veterinario" />
+    </Key>
+    <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+    <Property Name="IdAuxiliar" Type="varchar" MaxLength="45" />
+    <Property Name="Registro" Type="varchar" MaxLength="45" />
+    <Property Name="Cita" Type="varchar" MaxLength="45" />
+    <Property Name="Dueño" Type="varchar" MaxLength="45" />
+    <Property Name="Animal" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Cita">
+    <Key>
+      <PropertyRef Name="Registro_Veterinario" />
+    </Key>
+    <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+    <Property Name="IdCita" Type="varchar" MaxLength="45" />
+    <Property Name="Hora" Type="datetime" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Tipo_Animal" Type="varchar" MaxLength="45" />
+    <Property Name="Nombre_Animal" Type="varchar" MaxLength="45" />
+    <Property Name="Raza_Animal" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Diagnostico">
+    <Key>
+      <PropertyRef Name="Registro_Veterinario" />
+    </Key>
+    <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="45" />
+    <Property Name="Receta" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Dueño">
+    <Key>
+      <PropertyRef Name="Registro_Veterinario" />
+    </Key>
+    <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+    <Property Name="IdDueño" Type="varchar" MaxLength="45" />
+    <Property Name="Nombre_Dueño" Type="varchar" MaxLength="45" />
+    <Property Name="Numero_Dui" Type="int" />
+    <Property Name="Direccion" Type="varchar" MaxLength="45" />
+    <Property Name="Edad" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="45" />
+    <Property Name="Numero_Telefono" Type="int" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="Registro_Veterinario" />
+    </Key>
+    <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+    <Property Name="IdPersonal" Type="int" />
+    <Property Name="Indentificacion" Type="int" />
+    <Property Name="Veterinario" Type="varchar" MaxLength="35" />
+    <Property Name="Auxiliar" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="Registro_Personal">
+    <Key>
+      <PropertyRef Name="Registro_Veterinario" />
+    </Key>
+    <Property Name="Registro_Veterinario" Type="int" Nullable="false" />
+    <Property Name="IdPersona" Type="int" />
+    <Property Name="personal" Type="varchar" MaxLength="35" />
+    <Property Name="Nombre_Usuario" Type="varchar" MaxLength="45" />
+    <Property Name="Contraseña" Type="int" />
+    <Property Name="Edad" Type="int" />
+    <Property Name="Nombre_Completo" Type="varchar" MaxLength="45" />
+    <Property Name="Fecha_Ingreso" Type="datetime" />
+    <Property Name="Email" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="Veterinaria_SistemaModelStoreContainer">
+    <EntitySet Name="ANIMAL" EntityType="Self.ANIMAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Auxiliar" EntityType="Self.Auxiliar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diagnostico" EntityType="Self.Diagnostico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dueño" EntityType="Self.Dueño" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registro_Personal" EntityType="Self.Registro_Personal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
