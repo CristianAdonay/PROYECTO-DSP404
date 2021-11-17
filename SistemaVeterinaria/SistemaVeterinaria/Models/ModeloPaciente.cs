@@ -87,6 +87,15 @@ namespace SistemaVeterinaria.Models
                     
                 }
             }
+            catch (SqlException ex)
+            {
+                this.Mensaje = ex.Message;
+            }
+            finally
+            {
+                Datos.Close();
+            }
+            return unDueño;
         }
     }
 }

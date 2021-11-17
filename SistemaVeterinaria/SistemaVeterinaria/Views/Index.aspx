@@ -1,4 +1,4 @@
-﻿.<%@ Page Title="Menu" Language="C#" MasterPageFile="~/Views/Plantilla.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVeterinaria.Views.Index" %>
+﻿<%@ Page Title="Menu" Language="C#" MasterPageFile="~/Views/Plantilla.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVeterinaria.Views.Index" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
